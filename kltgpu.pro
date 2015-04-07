@@ -79,8 +79,10 @@ win32 {
 
     }
 }
+win32: INCLUDEPATH += C:/opencv/build/include
+win32: DEPENDPATH += C:/opencv/build/include
 
-LIBS += -LC:/opencv/buildGPU/lib/Release/ -lopencv_calib3d249\
+win32:LIBS += -LC:/opencv/buildGPU/lib/Release/ -lopencv_calib3d249\
 -lopencv_contrib249\
 -lopencv_core249\
 -lopencv_features2d249\
@@ -100,8 +102,14 @@ LIBS += -LC:/opencv/buildGPU/lib/Release/ -lopencv_calib3d249\
 -lopencv_video249\
 -lopencv_videostab249
 
-INCLUDEPATH += C:/opencv/build/include
-DEPENDPATH += C:/opencv/build/include
 
 
 
+
+unix:INCLUDEPATH += /home/cyxia/opencv2410/src/include
+unix:DEPENDPATH += /home/cyxia/opencv2410/src/include
+unix:LIBS += -L/home/cyxia/opencv2410/buildGPU/lib -lopencv_core\
+-lopencv_gpu\
+-lopencv_highgui\
+-lopencv_imgproc\
+-lopencv_legacy\

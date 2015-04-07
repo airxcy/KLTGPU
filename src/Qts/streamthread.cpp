@@ -99,8 +99,8 @@ void StreamThread::streaming()
                 cvtColor(frame,gray,CV_BGR2GRAY);
                 cvtColor(frame,frame,CV_BGR2RGB);
                 tracker->updateAframe(gray.data,frameidx);
-                //framebuff->updateAFrame(frame.data);
-                framebuff->updateAFrame(tracker->kltdense);
+                framebuff->updateAFrame(frame.data);
+                //framebuff->updateAFrame(tracker->kltdense);
                 frameptr=framebuff->cur_frame_ptr;
                 frameidx++;
                 //std::cout<<frameidx<<std::endl;

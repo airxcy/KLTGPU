@@ -48,7 +48,8 @@ void MainWindow::gviewClicked(QGraphicsSceneMouseEvent * event)
     QString fileName = QFileDialog::getOpenFileName(this,tr("Open vid"), "/Users/xcy/Documents/CVProject/data/labelCross", tr("Vid Files (*.avi *.mp4 *.mkv *.mts)"));
     if(!fileName.isEmpty())
     {
-        streamThd->streamStart(fileName.toStdString());
+        std::string tmpstr = fileName.toStdString();
+        streamThd->streamStart(tmpstr);
     }
 }
 

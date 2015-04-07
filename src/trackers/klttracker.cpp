@@ -176,7 +176,7 @@ int KLTtracker::updateAframe(unsigned char* framedata,int fidx)
     gpuGray.copyTo(gpuPreGray);
     Mat curframe(frame_height,frame_width,CV_8UC1,framedata);
     gpuGray.upload(curframe);
-
+    /*
     tracker.dense(gpuPreGray,gpuGray,gpuDenseX,gpuDenseY);
     gpu::multiply(gpuDenseX,255.0/1000,gpuDenseX);
     gpu::add(gpuDenseX,127,gpuDenseX);
@@ -195,6 +195,8 @@ int KLTtracker::updateAframe(unsigned char* framedata,int fidx)
         //kltdense[pixi*3]=255-*(denseY.data+pixi);
         kltdense[pixi*3+2]=*(denseY.data+pixi);
     }
+    */
+
     tracker.sparse(gpuPreGray, gpuGray, gpuPrePts, gpuNextPts, gpuStatus, &gpuEigenvec);
     gpuStatus.download(status);
     gpuNextPts.download(nextPts);
